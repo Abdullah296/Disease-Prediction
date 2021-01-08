@@ -1,0 +1,17 @@
+Corona symtoms 
+
+fever		0.31
+tiredness		0.5
+dry-cough		0.56
+difficult breathing	0.5
+sore throat	0.31
+pains		0.36
+nasal-congestion        0.54
+runny-nose	0.54
+diarrhea		0.36
+
+no symstoms	0.09
+
+
+33%  depends on gender
+25% depends on type of case i-e mild, severe, mild, moderate, none
