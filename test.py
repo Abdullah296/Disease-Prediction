@@ -8,7 +8,7 @@ Created on Fri Jan  8 09:55:24 2021
 import pandas as pd
 import numpy
 
-sym = [4,5,6]
+sym = [3,4,5,6,7,8,9,10,11,12,13]
 
 myData = pd.read_csv("hepatitis.csv", sep=',')
 myData = numpy.array(myData)
@@ -31,38 +31,47 @@ allDied = myData[myData[:, 0] == 1]
 allLive = myData[myData[:, 0] == 2]
 
 
-# All died with steriod
-D.append( list(allDied[:, sym[0]]).count(2))
+# All died with symptom describe above
+for i in sym:
+    D.append( list(allDied[:, i]).count(2))
 # All died with antiviral
-D.append( list(allDied[:, sym[1]]).count(2))
+#D.append( list(allDied[:, sym[1]]).count(2))
 # All died with fatigue
-D.append( list(allDied[:, sym[2]]).count(2))
+#D.append( list(allDied[:, sym[2]]).count(2))
 # All live with steriod
-L.append( list(allLive[:, sym[0]]).count(2))
+for i in sym:
+    L.append( list(allLive[:, i]).count(2))
+
 # All live with antiviral
-L.append( list(allLive[:, sym[1]]).count(2))
+#L.append( list(allLive[:, sym[1]]).count(2))
 # All live with fatigue
-L.append( list(allLive[:, sym[2]]).count(2))
+#L.append( list(allLive[:, sym[2]]).count(2))
 
 
 T = []
 for (item1, item2) in zip(L, D):
     T.append(item1+item2)
+
+print(len(sym)) 
+   
+sympercentageL = [] 
+for i in range(1, len(sym)+1):   
+    sympercentageL.append(L[i]/L[0])
+#sympercentageL.append(L[i]/L[0])
+#sympercentageL.append(L[i]/L[0]) 
+
+sympercentageD = []
+for i in range(1, len(sym)+1):      
+    sympercentageD.append(D[i]/D[0])
+#sympercentageD.append(D[2]/D[0])
+#sympercentageD.append(D[3]/D[0]) 
+
+sympercentageT = []
+for i in range(1, len(sym)+1):     
+    sympercentageT.append(T[i]/T[0])
     
-sympercentageL = []    
-sympercentageL.append(L[1]/L[0])
-sympercentageL.append(L[2]/L[0])
-sympercentageL.append(L[3]/L[0]) 
-
-sympercentageD = []    
-sympercentageD.append(D[1]/D[0])
-sympercentageD.append(D[2]/D[0])
-sympercentageD.append(D[3]/D[0]) 
-
-sympercentageT = []    
-sympercentageT.append(T[1]/T[0])
-sympercentageT.append(T[2]/T[0])
-sympercentageT.append(T[3]/T[0]) 
+#sympercentageT.append(T[2]/T[0])
+#sympercentageT.append(T[3]/T[0]) 
 
 livepercentage = totalLive/142
 Diedpercentage = totalDied/142
