@@ -1,5 +1,5 @@
 # all files in DataSet is ignored
-DataSet/**
+/DataSet/**
 
 # checkpoints created by jupyter
-.ipynb_checkpoints/**
+/.ipynb_checkpoints/**
