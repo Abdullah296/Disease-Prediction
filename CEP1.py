@@ -1,16 +1,46 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jan  8 18:15:35 2021
-
-@author: Abdullah
-"""
 import pandas as pd
 import numpy 
 
-sym = [3,4,5,6]                                                    # Symptoms you want to analyse
-missing_values = ["n/a", "na", "--"]                
-myData = pd.read_csv("41disease.csv", na_values = missing_values)
+#Row you want to Predict
+TT = 4              #which row you want to predict from testing.csv
+F = 41              # Total Disease you want to add
+
+sym = []            # Symptoms you want to analyse
+
+# Data cleaning
+
+missing_values = ["n/a", "na", "--"]                  
+myData1 = pd.read_csv("testing.csv", na_values = missing_values)
+
+myData1 = numpy.array(myData1)
+
+Test = myData1[TT,:]
+
+for i in range(0,len(Test)):
+    if(Test[i] == 1):
+        sym.append(i+1)
+print(sym)      # Sym contains Row number which new patient have symptoms
+
+
+myData = pd.read_csv("Dataset.csv", na_values = missing_values)
+
+# Data cleaning of training data
+FindingNAN = myData.isnull()
+
+dropingrow = []
+
+NAN_index = FindingNAN.any(axis=1)                              # finding index of NAN row
+
+for i in range(0,len(myData)):
+    if(NAN_index[i] == True):
+         dropingrow.append(i)
+         
+myData = myData.drop(dropingrow)        # Drop rows which contain NAN
+##################################33
+
 myData = numpy.array(myData)
+
+# converting String into number
 
 Disease = {'Fungal infection': 1,                                   # making distionary to change it into number
           'Allergy': 2,
@@ -56,7 +86,6 @@ Disease = {'Fungal infection': 1,                                   # making dis
           }
 
 
-print(myData[:, 0])
 
 Dis = list(myData[:, 0])
 One = []
@@ -67,100 +96,92 @@ for i in range(0, len(Dis)):
 myData[:, 0]=One;                                               # converted it into Number
 
 
-# some list neede
+# some list needed in code
 
-D1 = []                                                      # Disease1 List
-D2 = []                                                      # Disease2 List
-T = []                                                      # Total
-sympercentageD1 = []                                         # D1 symptoms percentage
-sympercentageD2 = []                                         # D2symptoms percentage
-sympercentageT = []                                         #total symptoms percentage
+D = []
+totalD = []
+HaveD = []
+D1 = []
+sympercentageD1 = []
+sympercentageT = []
+Dpercentage = []
+sympercentage1 = []
+P = []
+ProbabilityD = []
 
-totalD1 = list(myData[0:, 0]).count(1)                    # Total D1 person
-totalD2 = list(myData[0:, 0]).count(2)                    # Total D2 person
+for i in range(1,F+1):
+    totalD.append( list(myData[0:, 0]).count(i))                    # TotalD contains how many people have Disease 1 to N
 
-D1.append(totalD1)
-D2.append(totalD2)
-# selecting all rows that contans 2 in class column
-# all died
+#Seperating Attributes of all diseases  
 
-HaveD1 = myData[myData[:, 0] == 1]                         # Seperate all D1 person attributes
-# selecting all rows that contans 2 in class column
-# all live
-HaveD2 = myData[myData[:, 0] == 2]                         # Seperate all D2 person attributes
-
-
-# Counting of Disease 1 and 2
-for i in sym:
-    D1.append(list(HaveD1[:, i]).count(1))                  # count symptoms of all D1 people
-
-for i in sym:
-    D2.append( list(HaveD2[:, i]).count(1))                 # count symptoms of all D2 people
-
-# total Counting Add one and two
-for (item1, item2) in zip(D1, D2):
-    T.append(item1+item2)                                   # Add symptoms of all Died & live people
-
-# Calculating Percentages of Symptoms
-
-for i in range(1, len(sym)+1):   
-    sympercentageD1.append(D1[i]/D1[0])                        # calculate symptoms percentage of live people
+for i in range(1,F+1):
+    HaveD.append( myData[myData[:, 0] == i])                        # 3d list contain Disease 1 Symptoms to disease N
 
 
-for i in range(1, len(sym)+1):      
-    sympercentageD2.append(D2[i]/D2[0])                        # calculate symptoms percentage of Died people
-
-# Total Percentage
-for i in range(1, len(sym)+1):     
-    sympercentageT.append(T[i]/T[0])                        # calculate symptoms pertange total
-    
-#people have D1 percentange out of total
-
-D1percentage = totalD1/len(myData)                      # D1 percentage
-D2percentage = totalD2/len(myData)                      # D2 percentage
-
-
-# Contional Probability i-e multiplying with D1
-
-sympercentageD11 = [i * D1percentage for i in sympercentageD1]  # calculating Live person Conditional probability
-sympercentageD21 = [i * D2percentage for i in sympercentageD2]  # calculating Died person Conditional probability
-
-
-
-# If There is 0 replace it with 0.01
-
-for i in range(0, len(sympercentageD11)):
-    if(sum(sympercentageD11) != 0):
-        if(sympercentageD11[i] == 0):
-            sympercentageD11[i] = 0.01;
+# Counting Symptoms
  
-for i in range(0, len(sympercentageD21)):
-    if(sum(sympercentageD21) != 0):
-        if(sympercentageD21[i] == 0):
-            sympercentageD21[i] = 0.01;       
-
-# Multiplying all conditional Probabilites 
-ProbabilityD1 = numpy.prod(sympercentageD11)                   # multiplying all live conditional probability
-ProbabilityD1 = ProbabilityD1*D1percentage                # multiplying conditional probability with live percentage
-
-ProbabilityD2 = numpy.prod(sympercentageD21)                   # multiplying all Died conditional probability
-ProbabilityD2 = ProbabilityD2*D2percentage                # multiplying conditional probability with Died percentage
+for a in range(0,F):
+    D1 = []
+    D1.append(totalD[a])
+    for b in sym:
+        Extra = []
+        for i in range(0, 120):
+            Extra.append(HaveD[a][i][b])
+        D1.append(Extra.count(1))
+    D.append(D1)                                                    # count Symptoms of Disease 1 to Disease N
 
 
-
-# Calculating percentage of D1 and D2
-
-PT = ProbabilityD1+ProbabilityD2                           # total probability
-P1 = ProbabilityD1/PT                                        # percentage live
-P2 = ProbabilityD2/PT                                        # percentage died
-
-print("Probability of disease 1 is ", P1)
-print("Probability of disease 2 is ", P2)
-
-if(P1>P2):
-    print("You have Disease 1")
-else:
-    print("You have Disease 2")
+T = [ sum(x) for x in zip(*D) ]         # Total people having these symptoms
 
 
+# Calculating Percentage of Symptoms
 
+for a in range(0,F):
+    sympercentageD = []
+    for i in range(1, len(sym)+1):   
+        sympercentageD.append(D[a][i]/D[a][0])
+    sympercentageD1.append(sympercentageD)                  # Calculating percentage of all symptoms
+    
+for i in range(1, len(sym)+1):     
+    sympercentageT.append(T[i]/T[0])                        # total Percentage 
+
+
+for a in range(0,F):
+    Dpercentage.append(D[a][0]/T[0])                     # each disease probability
+
+# Calculating Conditional Probability
+
+for a in range(0,F):
+    sympercentage = []
+    sympercentage = [i * Dpercentage[a] for i in sympercentageD1[a]]    
+    sympercentage1.append(sympercentage)                # Multiply each Symptoms Percentage with disease probability
+
+# If 0 replace it with 0.0001 so Error don't occur
+
+for a in range(0,F):    
+    for i in range(0, len(sym)):
+        if(sum(sympercentage1[a]) != 0):
+            if(sympercentage1[a][i] == 0):
+                sympercentage1[a][i] = 0.0001;
+
+# Muliplying all Conditional probabilities
+
+for a in range(0,F):  
+    ProbabilityD1 = numpy.prod(sympercentage1[a])                   # multiplying all live conditional probability
+    ProbabilityD.append( ProbabilityD1*Dpercentage[a])
+
+#Calculating Total Probability
+    
+PT = sum(ProbabilityD)
+
+
+for a in range(0,F):
+    P.append(ProbabilityD[a]/PT )
+    print("Probability of disease", a+1 ," is ", P[a])
+
+print("You have Disease ", P.index(max(P))+1)
+Getdisease =[k for k,v in Disease.items() if v == P.index(max(P))+1]
+print("You are diagonose with ", Getdisease[0])   
+
+
+ 
