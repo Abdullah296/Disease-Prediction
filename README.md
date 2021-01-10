@@ -7,11 +7,22 @@
  *  .predict(Which tell the Disease having greater Probability)
 
 
-#Bayes Rule:
+###Bayes Rule:
 Bayes’ Theorem finds the probability of an event occurring given the probability of another event that has already occurred. Bayes’ theorem is stated mathematically as the following equation:
+
+
   P(y|X) = P(X|y)P(y)
               P(X)
+              
+              
+              
+              
   X = [x1, x2 ... xn]
+  
+  
+  P(y|x1, x2 ... xn) = P(x1|y)P(x2|y)...P(xn|y)*P(y)
+                               P(x1)P(x2)...P(xn)
+  
   
             
             
