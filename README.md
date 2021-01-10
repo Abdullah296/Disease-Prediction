@@ -8,10 +8,10 @@
 
 
 
-| Disease    | Total | Fever   ||Tastelessness | Fatigue   |
-| :---        |    :----:   |          ---: |:----:   |          ---: |
-|Corona     | 116       | 95   |49       |81   |
-| viral Infection   | 26        | 11      |2       | 7   |
+| Disease | Total | Fever | Tastelessness | Fatigue |
+| :--- | :----: | :---: | :----: | :---: |
+| Corona | 116 | 95 | 49 | 81 |
+| viral Infection | 26 | 11 | 2 | 7 |
 
 
  If you want to learn Baysain inference, you can [learn](https://www.geeksforgeeks.org/naive-bayes-classifiers/#:~:text=Naive%20Bayes%20classifiers%20are%20a,is%20independent%20of%20each%20other.) from here
