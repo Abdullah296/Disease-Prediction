@@ -8,28 +8,65 @@
 
 
 ###Bayes Rule:
+
+
 Bayes’ Theorem finds the probability of an event occurring given the probability of another event that has already occurred. Bayes’ theorem is stated mathematically as the following equation:
 
 
-  P(y|X) = P(X|y)P(y)
+  P(y|X) = P(X|y)P(y)/
               P(X)
               
               
               
               
-  X = [x1, x2 ... xn]
+        X = [x1, x2 ... xn]
   
   
-  P(y|x1, x2 ... xn) = P(x1|y)P(x2|y)...P(xn|y)*P(y)
+  P(y|x1, x2 ... xn) = P(x1|y)P(x2|y)...P(xn|y)*P(y)/
                                P(x1)P(x2)...P(xn)
   
   
-            
-            
+  
+Example:          
+  
+  
 | Disease | Total | Fever | Tastelessness | Fatigue |
 | :--- | :----: | :---: | :----: | :---: |
 | Corona | 116 | 95 | 49 | 81 |
 | viral Infection | 26 | 11 | 2 | 7 |
+
+After calculating Symptoms Percentages
+| Disease | Total | Fever | Tastelessness | Fatigue |
+| :--- | :----: | :---: | :----: | :---: |
+| Corona | 0.81 | 0.66 | 0.33 | .55 |
+| viral Infection | 0.19 | 0.15 | 0.08 | 0.13 |
+
+
+
+Then calculate Probabilities of Corona or Viral Infection
+
+
+P(Corona|Fever,Tastelessness,Fatigue) = 0.099
+P(Viral infection|Fever,Tastelessness,Fatigue) = 0.00187
+
+
+
+These numbers can be converted into a probability by making the sum equal to 1 (normalization):
+S0, 
+
+
+
+P(Corona|Fever,Tastelessness,Fatigue) = 0.099/0.099+0.00187
+P(Viral infection|Fever,Tastelessness,Fatigue) = 0.00187/0.099+0.00187
+
+
+
+P(Corona|Fever,Tastelessness,Fatigue) = 0.98
+P(Viral infection|Fever,Tastelessness,Fatigue) = 0.018
+
+
+
+
 
 
  If you want to learn Baysain inference, you can [learn](https://www.geeksforgeeks.org/naive-bayes-classifiers/#:~:text=Naive%20Bayes%20classifiers%20are%20a,is%20independent%20of%20each%20other.) from here
