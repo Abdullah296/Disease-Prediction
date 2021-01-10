@@ -19,16 +19,13 @@ Following is Explanation of baysain inference with Example
 Bayes’ Theorem finds the probability of an event occurring given the probability of another event that has already occurred. Bayes’ theorem is stated mathematically as the following equation:
 
 
-         P(y|X) = P(X|y)P(y)/
+         P(y|X) = P(X|y)P(y)
                     P(X)
-              
-              
-              
-              
+             
         X = [x1, x2 ... xn]
   
   
-        P(y|x1, x2 ... xn) = P(x1|y)P(x2|y)...P(xn|y)*P(y)/
+        P(y|x1, x2 ... xn) = P(x1|y)P(x2|y)...P(xn|y)*P(y)
                                  P(x1)P(x2)...P(xn)
   
   
@@ -54,7 +51,7 @@ Then calculate conditional Probabilities of Corona or Viral Infection symptoms a
 
 
 
-P(Corona|Fever,Tastelessness,Fatigue) = (0.66)(0.34)(0.55)(0.81)/
+> P(Corona|Fever,Tastelessness,Fatigue) = (0.66)(0.34)(0.55)(0.81)/
                                            P(x1)P(x2)...P(xn)
 
 
