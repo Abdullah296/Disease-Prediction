@@ -1,6 +1,9 @@
 # Disease-Prediction
-1. Make a class of Baysain inference which you can import it in your own code
-2. Class has following functions
- i.   .Clean (which find all NAN in data and drop that row from whole Data).
- ii.  .Train (which Find the probabilities of all Disease given following Symptoms )
- iii. .predict(Which tell the Disease having greater Probability)
+###  Make a class of Baysain inference which you can import it in your own code
+###  Make another File to use the above file functions
+### Class has following functions
+ *  .Clean (which find all NAN in data and drop that row from whole Data).
+ *  .Train (which Find the probabilities of all Disease given following Symptoms )
+ *  .predict(Which tell the Disease having greater Probability)
+
+ If you want to learn Baysain inference, you can [learn](https://www.geeksforgeeks.org/naive-bayes-classifiers/#:~:text=Naive%20Bayes%20classifiers%20are%20a,is%20independent%20of%20each%20other.) from here
