@@ -1,12 +1,16 @@
 # Disease-Prediction
   Make a module of Baysain inference which you can import it in your own code
+  
+  
   Make another File to use the above module
  Class has following functions
  *  .Clean (which find all NAN in data and drop that row from whole Data).
- *  .Train (which Find the probabilities of all Disease given following Symptoms )
-      Train Find all diseases probabilities with symptoms
- *  .predict(Which tell the Disease having greater Probability)
-      Predict Tell disease name having highest probability
+ *  .Train (which Find the probabilities of all Disease given following Symptoms, 
+      Train Find all diseases probabilities with symptoms)
+ *  .predict(Which tell the Disease having greater Probability,
+      Predict Tell disease name having highest probability)
+
+Following is Explanation of baysain inference with Example 
 
 
 **Bayes Rule:**
@@ -15,8 +19,8 @@
 Bayes’ Theorem finds the probability of an event occurring given the probability of another event that has already occurred. Bayes’ theorem is stated mathematically as the following equation:
 
 
-  P(y|X) = P(X|y)P(y)/
-              P(X)
+         P(y|X) = P(X|y)P(y)/
+                    P(X)
               
               
               
@@ -24,12 +28,13 @@ Bayes’ Theorem finds the probability of an event occurring given the probabili
         X = [x1, x2 ... xn]
   
   
-  P(y|x1, x2 ... xn) = P(x1|y)P(x2|y)...P(xn|y)*P(y)/
-                               P(x1)P(x2)...P(xn)
+        P(y|x1, x2 ... xn) = P(x1|y)P(x2|y)...P(xn|y)*P(y)/
+                                 P(x1)P(x2)...P(xn)
   
   
   
-Example:          
+**Example: **
+
  Here is corona and viral infection symptoms Table 
   
 | Disease | Total | Fever | Tastelessness | Fatigue |
@@ -81,7 +86,7 @@ S0,
 
 >  P(Viral infection|Fever,Tastelessness,Fatigue) = 0.018
 
-> So doing bayseain inference we know which disease have greater probability, So we predict greater probability disease which is corona in this Case
+ So doing bayseain inference we know which disease have greater probability, So we predict greater probability disease which is corona in this Case
 
 
 
