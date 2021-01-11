@@ -10,7 +10,7 @@ sym = []            # Symptoms you want to analyse
 # Data cleaning
 
 missing_values = ["n/a", "na", "--"]                  
-myData1 = pd.read_csv("./Dataset/testing.csv", na_values = missing_values)
+myData1 = pd.read_csv("../Dataset/testing.csv", na_values = missing_values)
 
 myData1 = numpy.array(myData1)
 
@@ -22,7 +22,7 @@ for i in range(0,len(Test)):
 print(sym)      # Sym contains Row number which new patient have symptoms
 
 
-myData = pd.read_csv("Dataset.csv", na_values = missing_values)
+myData = pd.read_csv("../Dataset/Dataset.csv", na_values = missing_values)
 
 # Data cleaning of training data
 FindingNAN = myData.isnull()
@@ -186,5 +186,10 @@ print("You have Disease ", P.index(max(P))+1)
 Getdisease =[k for k,v in Disease.items() if v == P.index(max(P))+1]
 print("You are diagonose with ", Getdisease[0])   
 
+print("You can find medicine of your disease using the link below")
 
+from googlesearch import search
+
+for i in search(Getdisease[0]+" Medicine" ,   lang='en', num=1, start=0, stop=1, pause=2.0):
+        print (i)
  

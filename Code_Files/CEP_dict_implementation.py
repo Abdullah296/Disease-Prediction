@@ -37,4 +37,12 @@ for i in list(testingdata.iloc[userIn, :]):
     index = index + 1
 
 # predicting for given symptoms
-print(myClasifier.predict(myClasifier.runTests(testingSymptoms)))
+Disease =myClasifier.predict(myClasifier.runTests(testingSymptoms))
+print(Disease)
+
+print("You can find medicine of your disease using the link below")
+
+from googlesearch import search
+
+for i in search(Disease +" Medicine" ,   lang='en', num=1, start=0, stop=1, pause=2.0):
+        print (i)
