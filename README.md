@@ -1,8 +1,7 @@
 # Disease-Prediction
   Make a module of Baysain inference which you can import it in your own code
-  
-  
-      >`from baysianClasifier import BayesianClassifier` 
+    
+      > `from baysianClasifier import BayesianClassifier` 
   
   Make another File to use the above module
  Class has following functions
@@ -14,11 +13,11 @@
  
  *  Train (which Find the probabilities of all Disease given following Symptoms, 
       Train Find all diseases probabilities with symptoms)
-      > `train()`
+      > `.train()`
       
  *  predict(Which tell the Disease having greater Probability,
       Predict Tell disease name having highest probability)
-      > `predict()`
+      > `.predict()`
 
 Following is the Explanation of baysain inference with Example 
 
