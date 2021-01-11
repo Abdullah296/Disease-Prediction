@@ -368,6 +368,15 @@ class BayesianClassifier:
                 # storing the data
                 probabilityResultsList[eachDisease] = probability
 
+        # finding sum of all the calculated probability
+        prob_sum = 0
+        for eachDisease, diseaseProbability in probabilityResultsList.items():
+            prob_sum = prob_sum + diseaseProbability
+
+        # dividing all calculated probabilities to there sum for normalization
+        for eachDisease, diseaseProbability in probabilityResultsList.items():
+            probabilityResultsList[eachDisease] = diseaseProbability / prob_sum
+
         # returning the calculated probabilities
         return probabilityResultsList
 
@@ -384,6 +393,9 @@ class BayesianClassifier:
         lastProbability = int()
 
         for eachDisease, diseaseProbability in probabilityResultsList.items():
+            # printing results
+            print(f"For disease {eachDisease} calculated probability is: {diseaseProbability}")
+            # making decision
             if lastProbability < diseaseProbability:
                 lastProbability = diseaseProbability
                 disease = eachDisease
