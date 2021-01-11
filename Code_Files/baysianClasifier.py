@@ -380,7 +380,7 @@ class BayesianClassifier:
         # returning the calculated probabilities
         return probabilityResultsList
 
-    def mostProbably(self, probabilityResultsList:dict) -> str:
+    def predict(self, probabilityResultsList:dict) -> str:
         """
         it takes results from self.runTests and returns the most likely disease.
         :param probabilityResultsList:
