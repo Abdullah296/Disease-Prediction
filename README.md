@@ -1,5 +1,7 @@
 # Disease-Prediction
   Make a module of Baysain inference which you can import it in your own code
+  
+  
       >`from baysianClasifier import BayesianClassifier` 
   
   Make another File to use the above module
