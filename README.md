@@ -111,3 +111,7 @@ S0,
 
 
  If you want to learn more about Baysain inference, you can [learn](https://www.geeksforgeeks.org/naive-bayes-classifiers/#:~:text=Naive%20Bayes%20classifiers%20are%20a,is%20independent%20of%20each%20other.) from here
+ 
+ 
+ 
+ [Dataset](https://www.kaggle.com/neelima98/disease-prediction-using-machine-learning)
