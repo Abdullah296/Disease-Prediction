@@ -1,5 +1,18 @@
 # Disease-Prediction
-  Make a module of Baysain inference which you can import it in your own code
+  How to Run CEP_dict_implementation.py File From command Line?
+  
+  Type python [filename] [testing_data.csv] [Row number]
+               
+    python CEP_dict_implementation.py ../DataSet/Testing.csv 5
+         
+  *  .py file read the testing_data.csv and then read the row of that dataset.
+  *   Then find the symptoms from the dataset the patient have.
+  *   Give that symptoms to .Train function.
+  *   Disease having highest probability is predicted.
+  *   .py also tell the link from where you can find the medicine of that disease.
+  
+  
+  Then Make a module of Baysain inference which you can import it in your own code
     
  `from baysianClasifier import BayesianClassifier`
   
@@ -98,3 +111,7 @@ S0,
 
 
  If you want to learn more about Baysain inference, you can [learn](https://www.geeksforgeeks.org/naive-bayes-classifiers/#:~:text=Naive%20Bayes%20classifiers%20are%20a,is%20independent%20of%20each%20other.) from here
+ 
+ 
+ 
+ [Dataset](https://www.kaggle.com/neelima98/disease-prediction-using-machine-learning)
