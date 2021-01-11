@@ -184,12 +184,18 @@ for a in range(0,F):
 
 print("You have Disease ", P.index(max(P))+1)
 Getdisease =[k for k,v in Disease.items() if v == P.index(max(P))+1]
+print("")
 print("You are diagonose with ", Getdisease[0])   
-
+print("")
 print("You can find medicine of your disease using the link below")
 
 from googlesearch import search
 
 for i in search(Getdisease[0]+" Medicine" ,   lang='en', num=1, start=0, stop=1, pause=2.0):
         print (i)
- 
+
+print("")
+print("You can find Doctor using Link below")
+
+for i in search(Getdisease[0] +" Doctor in Islamabad" ,   lang='en', num=1, start=0, stop=1, pause=2.0):
+        print (i)
