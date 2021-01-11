@@ -1,16 +1,24 @@
 # Disease-Prediction
   Make a module of Baysain inference which you can import it in your own code
-  
+ > `from baysianClasifier import BayesianClassifier` 
   
   Make another File to use the above module
  Class has following functions
- *  .Clean (which find all NAN in data and drop that row from whole Data).
- *  .Train (which Find the probabilities of all Disease given following Symptoms, 
+ *  Read Data
+ > `.cleanGivenData()` 
+ 
+ *  Clean (which find all NAN in data and drop that row from whole Data).
+ > `.cleanGivenData()`
+ 
+ *  Train (which Find the probabilities of all Disease given following Symptoms, 
       Train Find all diseases probabilities with symptoms)
- *  .predict(Which tell the Disease having greater Probability,
+      > `train()`
+      
+ *  predict(Which tell the Disease having greater Probability,
       Predict Tell disease name having highest probability)
+      > `predict()`
 
-Following is Explanation of baysain inference with Example 
+Following is the Explanation of baysain inference with Example 
 
 
 **Bayes Rule:**
