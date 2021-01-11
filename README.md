@@ -1,11 +1,11 @@
 # Disease-Prediction
   Make a module of Baysain inference which you can import it in your own code
-  `from baysianClasifier import BayesianClassifier` 
+      >`from baysianClasifier import BayesianClassifier` 
   
   Make another File to use the above module
  Class has following functions
  *  Read Data
-  `.getData()` 
+      >`.getData()` 
  
  *  Clean (which find all NAN in data and drop that row from whole Data).
       > `.cleanGivenData()`
