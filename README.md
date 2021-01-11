@@ -30,7 +30,7 @@ Bayes’ Theorem finds the probability of an event occurring given the probabili
   
   
   
-**Example: **
+**Example:
 
  Here is corona and viral infection symptoms Table 
   
